@@ -1,0 +1,126 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "type": "challenge",
+      "attributes": {
+        "components": [
+          {
+            "type": "title",
+            "attributes": {
+              "text": "WOWZAA"
+            }
+          },
+          {
+            "type": "image",
+            "attributes": {
+              "url": "http://i.kinja-img.com/gawker-media/image/upload/s--pgcrgwpd--/c_scale,fl_progressive,q_80,w_800/lacrrj7vttbn93wonzzc.jpg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "type": "challenge",
+      "attributes": {
+        "components": [
+          {
+            "type": "title",
+            "attributes": {
+              "text": "HOOHAA"
+            }
+          },
+          {
+            "type": "image",
+            "attributes": {
+              "url": "http://i.kinja-img.com/gawker-media/image/upload/s--pgcrgwpd--/c_scale,fl_progressive,q_80,w_800/lacrrj7vttbn93wonzzc.jpg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "challenge",
+      "attributes": {
+        "components": [
+          {
+            "type": "cause",
+            "attributes": {
+              "userName": "Sir Stewart",
+              "profileUrl": "http://media.makeadare.com/img/6160cf6aa/image_bceabb1299.jpg",
+              "actionText": " and 204 other people replied to"
+            }
+          },
+          {
+            "type": "title",
+            "attributes": {
+              "text": "Weclome to the Buffini Rewards Community!"
+            }
+          },
+          {
+            "type": "profile",
+            "attributes": {
+              "name": "Sir Cumberbatch",
+              "profileUrl": "http://vignette1.wikia.nocookie.net/marvelcinematicuniverse/images/8/85/Benedict_Cumberbatch.jpg/revision/latest?cb=20141027185524",
+              "title": "Sir Cumberatch of the Cumberatch's, from Cumberbatch, delightful place, you should visit."
+            }
+          },
+          {
+            "type": "text",
+            "attributes": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim dui sed mauris dapibus, quis condimentum libero congue. Vestibulum vulputate tempor nisi eget eleifend. Maecenas dignissim lacus blandit tempus varius. Praesent porttitor nunc id massa rutrum interdum. Suspendisse tincidunt, mauris ut ullamcorper gravida, enim est scelerisque diam, a tristique ex ligula eget nulla. Nunc iaculis ex in elit feugiat, a congue turpis posuere. Sed eget elit nisi. Mauris sed molestie enim, sit amet malesuada velit. Nam venenatis metus lectus, eu condimentum mi molestie sit amet. Pellentesque eget sapien at nunc faucibus auctor eget eget nisl. Duis finibus odio id convallis dapibus. Aliquam malesuada nisl non justo placerat fringilla."
+            }
+          },
+          {
+            "type": "secondary-actions",
+            "attributes": {
+              "actions": [
+                {
+                  "type": "share"
+                },
+                {
+                  "type": "follow"
+                },
+                {
+                  "type": "like"
+                }
+              ]
+            }
+          },
+          {
+            "type": "primary-actions",
+            "attributes": {
+              "actions": [
+                {
+                  "text": "View Discussion"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "challenge",
+      "attributes": {
+        "components": [
+          {
+            "type": "title",
+            "attributes": {
+              "text": "Again? Really?"
+            }
+          },
+          {
+            "type": "image",
+            "attributes": {
+              "url": "http://i.kinja-img.com/gawker-media/image/upload/s--pgcrgwpd--/c_scale,fl_progressive,q_80,w_800/lacrrj7vttbn93wonzzc.jpg"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

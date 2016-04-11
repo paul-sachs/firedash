@@ -1,0 +1,43 @@
+.main {
+  width: 100%;
+  font-family: 'Proxima Nova Light';
+  column-gap: 0px;
+  column-fill: auto;
+  transition: all 2s;
+}
+
+.main[width_under_670] > .cardList {
+  column-count: 1;
+}
+
+/* lower-bound = (325px * 2) + (10px * 3) + 1*/
+.main[width_between_681_and_1015] > .cardList {
+  column-count: 2;
+}
+
+/* lower-bound = (325px * 3) + (10px * 4) + 1*/
+.main[width_between_1016_and_1351] > .cardList {
+  column-count: 3;
+}
+
+/* lower-bound = (325px * 4) + (10px * 5) + 1*/
+.main[width_between_1352_and_1685] > .cardList {
+  column-count: 4;
+}
+
+/* lower-bound = (325px * 5) + (10px * 6) + 1*/
+.main[width_between_1686_and_2020] > .cardList {
+  column-count: 5;
+}
+
+.card {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 100%;
+  min-width: 325px;
+}
+
+.open {
+  transition: all 2s;
+  width: 300px;
+}
