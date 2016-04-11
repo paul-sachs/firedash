@@ -1,8 +1,6 @@
 export const prepareForMap = item => [item.id, item];
 
-export const mapResponse = ({ id, type, attributes }) => ({
+export const mapResponse = ({ id, type }) => ({
   id,
-  type,
-  components: attributes.components
+  type
 });
-

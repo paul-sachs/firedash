@@ -12,13 +12,11 @@ test('prepare for map', t => {
 });
 
 test('mapResponse', t => {
-  const components = [1, 2, 3];
 
   t.deepEqual(
-    mapResponse({ id: 42, type: 'badass', attributes: { components }}),
-    { id: 42, type: 'badass', components },
-    'un-nests attributes.components to components'
+    mapResponse({ id: 42, type: 'badass', components: ['other']}),
+    { id: 42, type: 'badass' },
+    'just return id and type'
   );
   t.end();
 });
-

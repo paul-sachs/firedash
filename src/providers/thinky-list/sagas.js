@@ -10,7 +10,7 @@ import { actions, actionTypes } from './actions';
 // This might be better as a separate utility function
 export function fetchCards() {
   return get(
-    process.env.SERVICE_URL,
+    process.env.SERVICE_URL + '/test-data.json',
     { withCredentials: true,  headers: {'X_ORG_ID': window.org_id } }
   )
   .then(({ data }) => data.data.map(mapResponse).map(prepareForMap));

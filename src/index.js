@@ -1,5 +1,4 @@
 import 'babel-polyfill';
-import 'infl-fonts/fonts.css';
 
 import React from 'react';
 import { render } from 'react-dom';

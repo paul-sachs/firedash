@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import provide from 'react-redux-provide';
 import { applyContainerQuery } from 'react-container-query';
 
-import OppCard from '@influitive/opportunity-card';
 import styles from './styles.css';
 
 const cardList = ({ thinkyList, userRefreshThinkyList }) => (
@@ -10,7 +9,8 @@ const cardList = ({ thinkyList, userRefreshThinkyList }) => (
     <div className={styles.cardList}>
       {[...thinkyList].map(([id, card]) => (
         <div key={id} className={styles.card}>
-          <OppCard rows={card.components} />
+          <div>ID:{card.id}</div>
+          <div>TYPE:{card.type}</div>
         </div>
       ))}
       <button onClick={userRefreshThinkyList}>facebook</button>
