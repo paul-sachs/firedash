@@ -4,7 +4,7 @@ kotatsu serve \
   -c config/webpack.config.js \
   -p 3079 \
   --public public \
-  --hmrurl http://localhost:3079 \
+  --hmrurl http://localhost:3078 \
   --progress \
   --devtool \\#eval-source-map \
   --babel \
