@@ -1,5 +1,5 @@
-import thinkyList from './thinky-list';
+import map from './map';
 
 export default {
-  thinkyList
+  map
 };

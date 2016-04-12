@@ -1,49 +1,23 @@
 import React, { PropTypes } from 'react';
 import provide from 'react-redux-provide';
-import { applyContainerQuery } from 'react-container-query';
 
 import styles from './styles.css';
 
-const cardList = ({ thinkyList, userRefreshThinkyList }) => (
-  <div className={`${styles.main} ${open}`}>
-    <div className={styles.cardList}>
-      {[...thinkyList].map(([id, card]) => (
-        <div key={id} className={styles.card}>
-          <div>ID:{card.id}</div>
-          <div>TYPE:{card.type}</div>
-        </div>
-      ))}
-      <button onClick={userRefreshThinkyList}>facebook</button>
-    </div>
+const cardList = ({ map, userRefreshMap }) => (
+  <div className={styles.cardList}>
+    {[...map].map(([id, card]) => (
+      <div key={id} className={styles.card}>
+        <div>ID:{card.id}</div>
+        <div>TYPE:{card.type}</div>
+      </div>
+    ))}
+    <button onClick={userRefreshMap}>Perform Fetch</button>
   </div>
 );
 
 cardList.propTypes = {
-  thinkyList: PropTypes.any,
-  userRefreshThinkyList: PropTypes.func,
-  setThinkyList: PropTypes.func
+  map: PropTypes.any,
+  userRefreshMap: PropTypes.func
 };
 
-const query = {
-  width_under_670: {
-    maxWidth: 670
-  },
-  width_between_681_and_1015: {
-    minWidth: 681,
-    maxWidth: 1015
-  },
-  width_between_1016_and_1351: {
-    minWidth: 1016,
-    maxWidth: 1351
-  },
-  width_between_1352_and_1685: {
-    minWidth: 1352,
-    maxWidth: 1685
-  },
-  width_between_1686_and_2020: {
-    minWidth: 1686,
-    maxWidth: 2020
-  }
-};
-
-export default applyContainerQuery(provide(cardList), query, { setAttribute: true });
+export default provide(cardList);

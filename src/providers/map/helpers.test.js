@@ -14,7 +14,7 @@ test('prepare for map', t => {
 test('mapResponse', t => {
 
   t.deepEqual(
-    mapResponse({ id: 42, type: 'badass', components: ['other']}),
+    mapResponse({ id: 42, type: 'badass', components: ['other'] }),
     { id: 42, type: 'badass' },
     'just return id and type'
   );

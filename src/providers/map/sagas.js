@@ -8,18 +8,17 @@ import { prepareForMap, mapResponse } from './helpers';
 import { actions, actionTypes } from './actions';
 
 // This might be better as a separate utility function
-export function fetchCards() {
+export function fetchData() {
   return get(
-    process.env.SERVICE_URL + '/test-data.json',
-    { withCredentials: true,  headers: {'X_ORG_ID': window.org_id } }
+    process.env.SERVICE_URL + '/test-data.json'
   )
   .then(({ data }) => data.data.map(mapResponse).map(prepareForMap));
 }
 
 export function* refreshCards() {
   try {
-    const data = yield call(fetchCards);
-    yield put(actions.setThinkyList(data));
+    const data = yield call(fetchData);
+    yield put(actions.setMap(data));
   } catch (e) {
     if (!isCancelError(e)) {
       throw e;
@@ -28,11 +27,11 @@ export function* refreshCards() {
 }
 
 function* watchRefreshCards() {
-  yield* takeLatest(actionTypes.USER_REFRESH_THINKYLIST, refreshCards);
+  yield* takeLatest(actionTypes.USER_REFRESH_MAP, refreshCards);
 }
 
 function* startup() {
-  yield put(actions.userRefreshThinkyList());
+  yield put(actions.userRefreshMap());
 }
 
 export default function* root() {

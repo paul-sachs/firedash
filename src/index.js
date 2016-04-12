@@ -2,7 +2,7 @@ import 'babel-polyfill';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { reloadProviders, pushEnhancer } from 'react-redux-provide';
+import { pushEnhancer } from 'react-redux-provide';
 
 import providers from './providers';
 import { App } from './components';
@@ -15,7 +15,7 @@ pushEnhancer(
 const context = {
   providers,
   providedState: {
-    thinkyList: []
+    map: []
   }
 };
 
@@ -23,12 +23,6 @@ render(<App { ...context }/>, document.getElementById('COMMUNITY_FEED_CONTAINER'
 
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
-    module.hot.accept([
-      './providers/index',
-      './providers/thinky-list/index',
-      '.'
-    ], () => {
-      reloadProviders(context);
-    });
+    module.hot.accept();
   }
 }

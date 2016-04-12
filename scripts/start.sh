@@ -1,5 +1,5 @@
 #! /bin/bash
-NODE_ENV=production kotatsu serve \
+kotatsu serve \
   --mount-node=COMMUNITY_FEED_CONTAINER \
   -c config/webpack.config.js \
   -p 3079 \
