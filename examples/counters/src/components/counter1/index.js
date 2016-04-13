@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import provide from 'react-redux-provide';
 
-const counter = ({ counter1, userIncrementCounter1, userDecrementCounter1 }) => {
-  console.log(counter1);
-  console.log(userIncrementCounter1);
+const counter = ({ counter1 = 0, routing, userIncrementCounter1, userDecrementCounter1 }) => {
+  console.log(routing);
   return <div>
     {counter1}
     <button onClick={userIncrementCounter1}>Increment</button>
@@ -12,7 +11,8 @@ const counter = ({ counter1, userIncrementCounter1, userDecrementCounter1 }) => 
 };
 
 counter.propTypes = {
-  counter1: PropTypes.number.isRequired,
+  counter1: PropTypes.number,
+  routing: PropTypes.any,
   userIncrementCounter1: PropTypes.func,
   userDecrementCounter1: PropTypes.func
 };
