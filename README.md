@@ -24,8 +24,8 @@ Kotatsu is a layer on top of webpack that has sane defaults, it works just like 
 ### PostCSS
 A much more javascript friendly css processing system. Allows us to share variables between JS and scss easily. Provides much more powerful plugins than what is capable in scss, for specific use cases. All css is compiled during build, no more running sass on the server.
 
-### Tape 
-Test anything protocol framework for harness free unit testing. Test should live directly alongside the modules they are testing. (files named \*.test.js will be matched) They should be atomic. Full es6 support in tests. 
+### Tape
+Test anything protocol framework for harness free unit testing. Test should live directly alongside the modules they are testing. (files named \*.test.js will be matched) They should be atomic. Full es6 support in tests.
 
 ### Eslint
 See .eslintrc
@@ -38,7 +38,3 @@ Use envionment variables in your scripts as well as your compiled front end file
 
 ### Pluginator.js
 Script to post the url to your applications static assets to a pluginator endpoint of your choosing (see .env.example)
-
-
-
-
