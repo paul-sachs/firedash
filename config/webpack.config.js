@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const urlJoin = require('url-join');
 const TARGET = process.env.npm_lifecycle_event;
+
 const PATHS = {
   build: path.join(process.cwd(), 'build')
 };
@@ -59,12 +60,6 @@ if (TARGET === 'build') {
       path: PATHS.build,
       filename: '[name].[chunkhash].js'
     },
-    // resolve: {
-    //   alias: {
-    //     'react': 'react-lite',
-    //     'react-dom': 'react-lite'
-    //   }
-    // },
     module: {
       loaders: [
         {

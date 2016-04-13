@@ -1,6 +1,6 @@
 import React from 'react';
 import provide from 'react-redux-provide';
 
-import CardList from './card-list';
+import styles from './app.css';
 
-export default provide(() => <CardList />);
+export default provide(() => <div className={styles.main}>Hello World</div>);
