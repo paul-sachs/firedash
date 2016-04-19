@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import provide from 'react-redux-provide';
 
-const counter = ({ counter1 = 0, routing, userIncrementCounter1, userDecrementCounter1 }) => {
-  console.log(routing);
+const counter = ({ counter1, userIncrementCounter1, userDecrementCounter1 }) => {
   return <div>
     {counter1}
     <button onClick={userIncrementCounter1}>Increment</button>

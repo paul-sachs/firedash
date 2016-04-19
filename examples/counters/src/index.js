@@ -13,9 +13,7 @@ pushEnhancer(
 );
 
 const context = {
-  providers,
-  providedState: {
-  }
+  providers
 };
 
 render(<App { ...context }/>, document.getElementById('app'));
