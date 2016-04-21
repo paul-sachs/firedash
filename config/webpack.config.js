@@ -13,6 +13,9 @@ const PATHS = {
 };
 
 const common = {
+  entry: {
+    index: 'src/index.js'
+  },
   output: {
     publicPath: urlJoin(process.env.CDN_URL, '/')
   },
@@ -53,9 +56,6 @@ if (TARGET === 'start') {
 
 if (TARGET === 'build') {
   const config = merge.smart(common, {
-    entry: {
-      index: 'src/index.js'
-    },
     output: {
       path: PATHS.build,
       filename: '[name].[chunkhash].js'

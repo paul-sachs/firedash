@@ -1,6 +1,6 @@
 #! /bin/bash
 kotatsu serve \
-  --mount-node=COMMUNITY_FEED_CONTAINER \
+  --mount-node=app \
   -c config/webpack.config.js \
   -p 3078 \
   --progress \

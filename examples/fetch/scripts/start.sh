@@ -8,6 +8,5 @@ kotatsu serve \
   --progress \
   --devtool \\#eval-source-map \
   --babel \
-  src/index.js \
 & npm run test:watch \
 & npm run lint:watch
