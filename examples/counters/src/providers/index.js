@@ -10,7 +10,7 @@ const router = provideRouter(browserHistory);
 //   router
 // };
 
-// alternatively, you can make one producer so actions can be seen
+// alternatively, you can make one provider so actions can be seen
 // and issued between different providers.
 
 const actions = {
@@ -24,8 +24,8 @@ const reducers = {
   ...router.reducers
 };
 const middleware = [
-  router.middleware,
-  counter1.middleware
+  counter1.middleware,
+  router.middleware
 ];
 
 const enhancer = [

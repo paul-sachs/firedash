@@ -1,5 +1,4 @@
 import React from 'react';
-import provide from 'react-redux-provide';
 
 const navLink = ({ pushRoute, path, children, isSelected }) => (
   <a onClick={() => pushRoute(path)}>
@@ -15,4 +14,4 @@ navLink.propTypes = {
   path: React.PropTypes.string.isRequired
 };
 
-export default provide(navLink);
+export default navLink;
