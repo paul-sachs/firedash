@@ -6,7 +6,8 @@ import localforage from 'redux-replicate-localforage';
 // persistance. This example uses localstorage to save changes.
 
 const replication = {
-  replicator: localforage
+  replicator: localforage,
+  reducerKeys: ['counter2']
 };
 
 export default { ...actionTypes, actions, reducers, replication };

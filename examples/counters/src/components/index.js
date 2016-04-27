@@ -4,7 +4,8 @@ import Counter1 from './counter1';
 import Counter2 from './counter2';
 import { Router, Route, IndexRoute } from 'react-router';
 
-const routes = () => {
+const router = () => {
+
   return <Router>
     <Route path='/' component={App}>
       <IndexRoute component={Counter1}/>
@@ -14,4 +15,4 @@ const routes = () => {
   </Router>;
 };
 
-export default routes;
+export default router;

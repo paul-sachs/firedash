@@ -19,11 +19,13 @@ const actions = {
   ...counter2.actions,
   ...router.actions
 };
+
 const reducers = {
   ...counter1.reducers,
   ...counter2.reducers,
   ...router.reducers
 };
+
 const middleware = [
   counter1.middleware,
   router.middleware
@@ -35,12 +37,18 @@ const enhancer = [
   applyMiddleware(...middleware)
 ];
 
+const replication = [
+  counter1.replication,
+  counter2.replication
+];
+
 // Use this export instead:
 
 export default {
   root: {
     actions,
     reducers,
-    enhancer
+    enhancer,
+    replication
   }
 };

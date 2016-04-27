@@ -8,6 +8,7 @@ import { reloadProviders, pushEnhancer } from 'react-redux-provide';
 import providers from './providers';
 import App from './components';
 
+
 pushEnhancer(
   providers,
   (process.env.NODE_ENV && window.devToolsExtension) ? window.devToolsExtension() : f => f

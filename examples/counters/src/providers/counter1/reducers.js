@@ -2,6 +2,7 @@ import { actionTypes } from './actions';
 
 export default {
   counter1: (state = 0, action) => {
+    console.log(action);
     switch (action.type) {
       case actionTypes.USER_INCREMENT_COUNTER1:
         return state + 1;
