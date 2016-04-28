@@ -1,7 +1,6 @@
 import React from 'react';
 import NavLink from '../nav-link';
 import styles from './styles.css';
-import provide from 'react-redux-provide';
 
 const combined = ({ paths, pathname }) => (
   <div className={styles.main}>
@@ -18,4 +17,4 @@ combined.propTypes = {
   pathname: React.PropTypes.string.isRequired
 };
 
-export default provide(combined);
+export default combined;

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import provide from 'react-redux-provide';
 
 const counter = ({ counter2, userIncrementCounter2, userDecrementCounter2 }) => {
   return <div>
@@ -15,4 +14,4 @@ counter.propTypes = {
   userDecrementCounter2: PropTypes.func
 };
 
-export default provide(counter);
+export default counter;

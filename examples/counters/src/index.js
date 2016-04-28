@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import 'react-redux-provide/lib/install';
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -6,6 +7,7 @@ import { reloadProviders, pushEnhancer } from 'react-redux-provide';
 
 import providers from './providers';
 import App from './components';
+
 
 pushEnhancer(
   providers,
@@ -24,7 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
       './providers/index',
       '.'
     ], () => {
-      reloadProviders(context);
+      reloadProviders(require('./providers').default);
     });
   }
 }
