@@ -2,6 +2,7 @@ import counter1 from './counter1';
 import counter2 from './counter2';
 import provideRouter from 'provide-router';
 import { browserHistory } from 'react-router';
+import { applyMiddleware } from 'redux';
 
 const router = provideRouter(browserHistory);
 // export default {
@@ -29,7 +30,9 @@ const middleware = [
 ];
 
 const enhancer = [
-  router.enhancer
+  router.enhancer,
+  counter1.enhancer,
+  applyMiddleware(...middleware)
 ];
 
 // Use this export instead:
@@ -38,7 +41,6 @@ export default {
   root: {
     actions,
     reducers,
-    middleware,
     enhancer
   }
 };
