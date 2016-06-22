@@ -19,7 +19,7 @@ const context = {
   }
 };
 
-render(<App { ...context }/>, document.getElementById('COMMUNITY_FEED_CONTAINER'));
+render(<App {...context}/>, document.getElementById('COMMUNITY_FEED_CONTAINER'));
 
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {

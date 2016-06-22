@@ -18,7 +18,7 @@ const context = {
   providers
 };
 
-render(<App { ...context }/>, document.getElementById('app'));
+render(<App {...context}/>, document.getElementById('app'));
 
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
