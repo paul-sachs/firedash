@@ -1,9 +1,7 @@
 const vars = require('postcss-simple-vars');
-const rucksack = require('rucksack-css');
-const autoprefixer = require('autoprefixer');
+const reforgePlugins = require('reforge/config/postcss-plugins');
 
 module.exports = [
   vars({ variables: require('../src/common/vars') }),
-  rucksack,
-  autoprefixer
+  ...reforgePlugins
 ];

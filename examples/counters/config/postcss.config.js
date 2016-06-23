@@ -1,7 +1,1 @@
-const rucksack = require('rucksack-css');
-const autoprefixer = require('autoprefixer');
-
-module.exports = [
-  rucksack,
-  autoprefixer
-];
+module.exports = require('reforge/config/postcss-plugins');

@@ -33,9 +33,12 @@ const middleware = [
 ];
 
 const enhancer = [
-  router.enhancer,
   counter1.enhancer,
   applyMiddleware(...middleware)
+];
+
+const onInstantiated = [
+  router.onInstantiated
 ];
 
 const replication = [
@@ -43,13 +46,12 @@ const replication = [
   counter2.replication
 ];
 
-// Use this export instead:
-
 export default {
   root: {
     actions,
     reducers,
     enhancer,
-    replication
+    replication,
+    onInstantiated
   }
 };
