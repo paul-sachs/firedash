@@ -13,8 +13,7 @@
     "start": "./scripts/start.sh",
     "build": "rm -rf build && kotatsu build client -c config/webpack.config.js --babel --quiet",
     "lint": "eslint .",
-    "lint:watch": "nodemon --quiet --exec \"npm run --silent lint\" --watch src",
-    "publish:pluginator": "babel-node ./node_modules/reforge/scripts/pluginator.js"
+    "lint:watch": "nodemon --quiet --exec \"npm run --silent lint\" --watch src"
   },
   "pre-commit": {
     "run": "test, lint"
