@@ -1,6 +1,8 @@
 import React from 'react';
-import provide from 'react-redux-provide';
-
+import 'react-redux-provide/lib/install';
 import styles from './app.css';
-
-export default provide(() => <div className={styles.main}>Hello World</div>);
+import Grid from './grid';
+export default () =>
+  <div className={styles.main}>
+    <Grid/>
+  </div>;
