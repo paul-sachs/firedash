@@ -6,6 +6,7 @@ kotatsu serve \
   --progress \
   --devtool \\#eval-source-map \
   --babel \
+  --cors
   src/index.js \
 & npm run test:watch \
 & npm run lint:watch
