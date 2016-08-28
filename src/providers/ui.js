@@ -1,14 +1,9 @@
-import { createAction, createReducer } from 'redux-act';
-
-const setToolbarOpen = createAction('set toolbar open/closed');
-
-const actions = {
-  setToolbarOpen
-};
+import { createReducer } from 'redux-act';
+import { actions } from './user-actions';
 
 const reducers = {
   toolbarOpen: createReducer({
-    [setToolbarOpen]: (_, payload) => payload
+    [actions.userToggleToolBar]: (state) => !state
   }, false)
 };
 

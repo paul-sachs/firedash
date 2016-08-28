@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import { provide } from 'react-redux-provide';
-import { compose, setPropTypes, setDisplayName } from 'recompose';
+import { compose, setPropTypes, setDisplayName, withProps } from 'recompose';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
 import SocialWhatsHot from 'material-ui/svg-icons/social/whatshot';
@@ -13,7 +13,7 @@ import MergeType from 'material-ui/svg-icons/editor/merge-type';
 import SVGIcon from 'material-ui/SVGIcon';
 import Dashboard from 'material-ui/svg-icons/action/dashboard';
 import Widgets from 'material-ui/svg-icons/device/widgets';
-
+import cn from 'classnames';
 import styles from './styles.css';
 
 const enhance = compose(
@@ -21,18 +21,22 @@ const enhance = compose(
   setDisplayName('Toolbar'),
   setPropTypes({
     toolbarOpen: PropTypes.bool.isRequired,
-    setToolbarOpen: PropTypes.func.isRequired
-  })
+    userToggleToolBar: PropTypes.func.isRequired
+  }),
+  withProps(props => ({
+    classes: cn(styles.toolbar, { [styles.closed]: !props.toolbarOpen })
+  }))
 );
 
-export default enhance(() =>
-  <Toolbar>
-    <ToolbarGroup firstChild={true}>
+export default enhance(({ classes, userToggleToolBar }) =>
+  <Toolbar className={classes}>
+    <ToolbarGroup firstChild={true} onClick={userToggleToolBar}>
       <IconButton className={styles.icon}>
         <SocialWhatsHot/>
       </IconButton>
+      <ToolbarSeparator className={styles.logoSeperator}/>
     </ToolbarGroup>
-    <ToolbarSeparator className={styles.seperator}/>
+
     <ToolbarGroup title='Dashboard' >
       <SVGIcon className={styles.icon}>
         <Dashboard/>
@@ -75,9 +79,9 @@ export default enhance(() =>
           </IconButton>
         }
         >
-        <MenuItem value={1} primaryText='widget 1' />
-        <MenuItem value={2} primaryText='widget 2' />
-        <MenuItem value={3} primaryText='widget 3' />
+        <MenuItem value={1} primaryText='datasource 1' />
+        <MenuItem value={2} primaryText='datasource 2' />
+        <MenuItem value={3} primaryText='datasource 3' />
       </IconMenu>
     </ToolbarGroup>
   </Toolbar>);

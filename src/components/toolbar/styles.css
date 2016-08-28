@@ -1,3 +1,16 @@
+.toolbar {
+  position: absolute !important;
+  transition: all 0.4s cubic-bezier(.03,.89,.35,1);
+  width: 96%;
+  transform: translateX(5%);
+  z-index: 10;
+  border-bottom-left-radius: 5px;
+
+  &.closed {
+    transform: translateX(calc(100% - 10px));
+  }
+}
+
 .icon {
   align-self: center !important;
 }
@@ -9,5 +22,11 @@
 .seperator {
   flex-shrink: 0 !important;
   margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.logoSeperator {
+  flex-shrink: 0 !important;
+  margin-left: 0px !important;
   margin-right: 12px !important;
 }
