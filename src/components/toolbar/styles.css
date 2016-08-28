@@ -1,0 +1,13 @@
+.icon {
+  align-self: center !important;
+}
+
+.disabledIcon {
+  composes: icon;
+}
+
+.seperator {
+  flex-shrink: 0 !important;
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+}
