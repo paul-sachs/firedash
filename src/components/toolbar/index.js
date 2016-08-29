@@ -21,17 +21,18 @@ const enhance = compose(
   setDisplayName('Toolbar'),
   setPropTypes({
     toolbarOpen: PropTypes.bool.isRequired,
-    userToggleToolBar: PropTypes.func.isRequired
+    userToggleToolBar: PropTypes.func.isRequired,
+    userToggleDashboardDetails: PropTypes.func.isRequired
   }),
   withProps(props => ({
     classes: cn(styles.toolbar, { [styles.closed]: !props.toolbarOpen })
   }))
 );
 
-export default enhance(({ classes, userToggleToolBar }) =>
+export default enhance(({ classes, userToggleToolBar, userToggleDashboardDetails }) =>
   <Toolbar className={classes}>
     <ToolbarGroup firstChild={true} onClick={userToggleToolBar}>
-      <IconButton className={styles.icon}>
+      <IconButton className={styles.icon} iconStyle={{ color: '#ff6b6b' }}>
         <SocialWhatsHot/>
       </IconButton>
       <ToolbarSeparator className={styles.logoSeperator}/>
@@ -46,7 +47,7 @@ export default enhance(({ classes, userToggleToolBar }) =>
         <MenuItem value={2} primaryText='Dash 2' />
         <MenuItem value={3} primaryText='Dash 3' />
       </DropDownMenu>
-      <IconButton className={styles.icon}>
+      <IconButton className={styles.icon} onClick={userToggleDashboardDetails}>
         <ContentAddBox />
       </IconButton>
     </ToolbarGroup>
