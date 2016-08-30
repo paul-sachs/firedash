@@ -16,7 +16,7 @@
     "lint:watch": "nodemon --quiet --exec \"npm run --silent lint\" --watch src"
   },
   "pre-commit": {
-    "run": "test, lint"
+    "run": "lint"
   },
   "dependencies": {
     "axios": "^0.9.1",

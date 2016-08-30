@@ -7,8 +7,6 @@ import provide from 'react-redux-provide';
 import Dashboard from './dashboard';
 import { compose, setPropTypes, setDisplayName } from 'recompose';
 
-import Dialog from 'material-ui/Dialog';
-
 const enhance = compose(
   provide,
   setDisplayName('Dashboard'),
@@ -17,15 +15,11 @@ const enhance = compose(
   })
 );
 
-export default enhance(({ dashboardDialogOpen }) =>
+export default enhance(() =>
   <MuiThemeProvider>
     <div className={styles.main}>
       <Toolbar/>
       <Grid/>
-      <Dialog title='Dashboard'
-        open={dashboardDialogOpen}
-        modal={false}>
-        <Dashboard/>
-      </Dialog>
+      <Dashboard/>
     </div>
   </MuiThemeProvider>);
