@@ -1,23 +1,16 @@
-// import createSagaMiddleware from 'redux-saga';
+import { createStore, combineReducers } from 'redux';
 
 import ui from './ui';
-// import store from './store';
-
-// import sagas from './sagas';
-//import actions from './actions';
 import { actions as userActions } from './user-actions';
-// const middleware = createSagaMiddleware();
-// const onReady = () => middleware.run(sagas);
 
-
-export default {
-  root: {
-    actions: {
-      ...ui.actions,
-      ...userActions
-    },
-    reducers: {
-      ...ui.reducers
-    }
-  }
+const actionReducer = {
+  __actions: () => ({
+    ...userActions
+  })
 };
+
+export default (data) => {
+  const reducer = combineReducers({ ...ui.reducers, ...actionReducer });
+
+  return createStore(reducer, data, window.devToolsExtension && window.devToolsExtension());
+} ;

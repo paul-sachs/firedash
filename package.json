@@ -41,7 +41,6 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-grid-layout": "^0.13.1",
-    "react-redux-provide": "^6.0.0-rc.14",
     "react-tap-event-plugin": "^1.0.0",
     "recompose": "^0.20.2",
     "redux": "^3.3.1",

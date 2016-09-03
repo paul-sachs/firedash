@@ -1,13 +1,13 @@
 .toolbar {
   position: absolute !important;
   transition: all 0.4s cubic-bezier(.03,.89,.35,1);
-  width: 96%;
-  transform: translateX(5%);
+  width: calc(100% - 50px);
+  margin-left: 50px;
   z-index: 10;
   border-bottom-left-radius: 5px;
 
   &.closed {
-    transform: translateX(calc(100% - 10px));
+    transform: translateX(calc(100% - 50px));
   }
 }
 

@@ -1,15 +1,12 @@
 import React, { PropTypes }  from 'react';
-import { provide } from 'react-redux-provide';
+import connectBasedOnPropTypes from 'src/common/connect-based-on-proptypes';
 import { compose, setPropTypes, setDisplayName, withProps } from 'recompose';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import { Field, reduxForm } from 'redux-form';
 
 const enhance = compose(
-  reduxForm,
-  provide,
+  connectBasedOnPropTypes,
   setDisplayName('Dashboard'),
   setPropTypes({
     dashboardDialogOpen: PropTypes.bool.isRequired,
@@ -39,13 +36,6 @@ export default enhance(({ dashboardDialogOpen, actions }) =>
     actions={actions}
     modal={false}>
     <form id='dashboard-form'>
-      <Field name="name" component={name =>
-        <TextField
-          hintText="Dashboard name"
-          floatingLabelText="Name"
-          {...name}
-        />
-      }/>
     </form>
   </Dialog>
 );

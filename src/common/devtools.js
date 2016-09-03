@@ -1,4 +1,4 @@
-import values from 'lodash.values';
+import _ from 'lodash';
 import { unshiftEnhancer, pushMiddleware } from 'react-redux-provide';
 import createLogger from 'redux-logger';
 
@@ -15,7 +15,7 @@ const config = {
 };
 
 function connectDevtools(providers) {
-  values(providers).forEach(provider => {
+  _.values(providers).forEach(provider => {
     unshiftEnhancer(
       { provider },
       window.devToolsExtension(config.devtools)

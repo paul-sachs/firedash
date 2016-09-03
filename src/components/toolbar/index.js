@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 
-import { provide } from 'react-redux-provide';
 import { compose, setPropTypes, setDisplayName, withProps } from 'recompose';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
@@ -15,9 +14,10 @@ import Dashboard from 'material-ui/svg-icons/action/dashboard';
 import Widgets from 'material-ui/svg-icons/device/widgets';
 import cn from 'classnames';
 import styles from './styles.css';
+import connectBasedOnPropTypes from 'src/common/connect-based-on-proptypes';
 
 const enhance = compose(
-  provide,
+  connectBasedOnPropTypes,
   setDisplayName('Toolbar'),
   setPropTypes({
     toolbarOpen: PropTypes.bool.isRequired,
