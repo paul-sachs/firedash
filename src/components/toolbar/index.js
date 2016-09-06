@@ -1,6 +1,5 @@
-import React, { PropTypes } from 'react';
-
-import { compose, setPropTypes, setDisplayName, withProps } from 'recompose';
+import React from 'react';
+import { compose, setDisplayName, withProps } from 'recompose';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
 import SocialWhatsHot from 'material-ui/svg-icons/social/whatshot';
@@ -14,16 +13,17 @@ import Dashboard from 'material-ui/svg-icons/action/dashboard';
 import Widgets from 'material-ui/svg-icons/device/widgets';
 import cn from 'classnames';
 import styles from './styles.css';
-import connectBasedOnPropTypes from 'src/common/connect-based-on-proptypes';
+//import connectBasedOnPropTypes from 'src/common/connect-based-on-proptypes';
+import fromState from 'src/common/from-state';
+import fromUserActions from 'src/common/from-user-actions';
 
 const enhance = compose(
-  connectBasedOnPropTypes,
-  setDisplayName('Toolbar'),
-  setPropTypes({
-    toolbarOpen: PropTypes.bool.isRequired,
-    userToggleToolBar: PropTypes.func.isRequired,
-    userToggleDashboardDetails: PropTypes.func.isRequired
+  fromState({ toolbarOpen: 'toolbarOpen' }),
+  fromUserActions({
+    userToggleDashboardDetails: 'userToggleDashboardDetails',
+    userToggleToolBar: 'userToggleToolBar'
   }),
+  setDisplayName('Toolbar'),
   withProps(props => ({
     classes: cn(styles.toolbar, { [styles.closed]: !props.toolbarOpen })
   }))

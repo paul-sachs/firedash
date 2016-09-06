@@ -4,7 +4,7 @@ import React from 'react';
 import { render } from 'react-dom';
 //import connectDevtools from './common/devtools';
 import App from './components';
-import createStore from './providers';
+import store from './store';
 import { Provider } from 'react-redux';
 
 //connectDevtools(providers);
@@ -12,7 +12,6 @@ import { Provider } from 'react-redux';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 
-const store = createStore();
 render(
   <Provider store={store}>
     <App/>
