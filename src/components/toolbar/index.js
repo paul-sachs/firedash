@@ -13,7 +13,6 @@ import Dashboard from 'material-ui/svg-icons/action/dashboard';
 import Widgets from 'material-ui/svg-icons/device/widgets';
 import cn from 'classnames';
 import styles from './styles.css';
-//import connectBasedOnPropTypes from 'src/common/connect-based-on-proptypes';
 import fromState from 'src/common/from-state';
 import fromUserActions from 'src/common/from-user-actions';
 

@@ -1,12 +1,13 @@
-import React, { PropTypes }  from 'react';
-import connectBasedOnPropTypes from 'src/common/connect-based-on-proptypes';
-import { compose, setPropTypes, setDisplayName, withProps } from 'recompose';
+import React from 'react';
+import { compose, setDisplayName, withProps } from 'recompose';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
 import TextField from 'material-ui/TextField';
 import validate from './validate';
+import fromState from 'src/common/from-state';
+import fromUserActions from 'src/common/from-user-actions';
 
 const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
   <TextField hintText={label}
@@ -22,12 +23,11 @@ const enhance = compose(
     form: 'DashboardForm',  // a unique identifier for this form
     validate
   }),
-  connectBasedOnPropTypes,
-  setDisplayName('Dashboard'),
-  setPropTypes({
-    dashboardDialogOpen: PropTypes.bool.isRequired,
-    userToggleDashboardDetails: PropTypes.func.isRequired
+  fromState({ dashboardDialogOpen: 'dashboardDialogOpen' }),
+  fromUserActions({
+    userToggleDashboardDetails: 'userToggleDashboardDetails'
   }),
+  setDisplayName('Dashboard'),
   withProps(({ userToggleDashboardDetails }) => ({
     actions: [
       <FlatButton key='cancel'
