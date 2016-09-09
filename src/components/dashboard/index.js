@@ -4,25 +4,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
-import TextField from 'material-ui/TextField';
 import validate from './validate';
 import fromState from 'src/common/from-state';
 import fromUserActions from 'src/common/from-user-actions';
-
-const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
-  <TextField hintText={label}
-    floatingLabelText={label}
-    errorText={touched && error}
-    {...input}
-    {...custom}
-  />
-);
+import {
+  TextField
+} from 'redux-form-material-ui';
 
 const enhance = compose(
-  reduxForm({
-    form: 'DashboardForm',  // a unique identifier for this form
-    validate
-  }),
   fromState({ dashboardDialogOpen: 'dashboardDialogOpen' }),
   fromUserActions({
     userToggleDashboardDetails: 'userToggleDashboardDetails'
@@ -46,8 +35,20 @@ const enhance = compose(
   }))
 );
 
-const handleSubmit = event => {
-  event.preventDefault();
+const Form = reduxForm({
+  form: 'DashboardForm',  // a unique identifier for this form
+  validate
+})(({ handleSubmit }) =>
+  <form id='dashboard-form' onSubmit={handleSubmit}>
+    <Field name='name' label='Name'
+      component={TextField}
+      props={{ hintText: 'Name', floatingLabelText: 'Name' }}/>
+  </form>
+);
+
+const handleSubmit = (data, dispatch, formProps) => {
+  console.log(formProps);
+  return data;
 };
 
 export default enhance(({ dashboardDialogOpen, actions }) =>
@@ -55,8 +56,6 @@ export default enhance(({ dashboardDialogOpen, actions }) =>
     open={dashboardDialogOpen}
     actions={actions}
     modal={false}>
-    <form id='dashboard-form' onSubmit={handleSubmit}>
-      <Field name="name" component={renderTextField} label="First Name"/>
-    </form>
+    <Form onSubmit={handleSubmit}/>
   </Dialog>
 );

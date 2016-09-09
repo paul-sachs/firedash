@@ -6,4 +6,5 @@ import { actions } from 'src/store/user-actions';
 export default requestedProperties =>
   connect(null, dispatch => bindActionCreators(
     mapValues(requestedProperties, key => actions[key]),
-    dispatch));
+    dispatch)
+  );
