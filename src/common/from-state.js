@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { mapValues } from 'lodash';
+import { map } from 'ramda';
 
 export default requestedProperties => connect(state =>
-  mapValues(requestedProperties, key => state[key])
+  map(key => state[key], requestedProperties)
 );

@@ -23,8 +23,7 @@ const enhance = compose(
   })),
   withState('mounted', 'setMounted', false),
   lifecycle({
-    /* eslint object-shorthand:0 */
-    componentDidMount: function() {
+    componentDidMount() {
       this.props.setMounted(true);
     }
   }),

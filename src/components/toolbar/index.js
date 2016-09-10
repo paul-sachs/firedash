@@ -15,9 +15,15 @@ import cn from 'classnames';
 import styles from './styles.css';
 import fromState from 'src/common/from-state';
 import fromUserActions from 'src/common/from-user-actions';
+import { map, values } from 'ramda';
 
 const enhance = compose(
-  fromState({ toolbarOpen: 'toolbarOpen' }),
+  fromState({
+    toolbarOpen: 'toolbarOpen',
+    dashboardList: 'dashboardList',
+    selectedDashboard: 'selectedDashboard',
+    widgetList: 'widgetList'
+  }),
   fromUserActions({
     userToggleDashboardDetails: 'userToggleDashboardDetails',
     userToggleToolBar: 'userToggleToolBar'
@@ -28,7 +34,12 @@ const enhance = compose(
   }))
 );
 
-export default enhance(({ classes, userToggleToolBar, userToggleDashboardDetails }) =>
+const mapObjectToMenuItems = (valueKey, textKey, object) => map((item, index) =>
+  <MenuItem key={index} value={item[valueKey]} primaryText={item[textKey]} />)(values(object));
+
+export default enhance(({ classes, userToggleToolBar,
+  userToggleDashboardDetails, dashboardList,
+  selectedDashboard, widgetList }) =>
   <Toolbar className={classes}>
     <ToolbarGroup firstChild={true} onClick={userToggleToolBar}>
       <IconButton className={styles.icon} iconStyle={{ color: '#ff6b6b' }}>
@@ -36,15 +47,12 @@ export default enhance(({ classes, userToggleToolBar, userToggleDashboardDetails
       </IconButton>
       <ToolbarSeparator className={styles.logoSeperator}/>
     </ToolbarGroup>
-
     <ToolbarGroup title='Dashboard' >
       <SVGIcon className={styles.icon}>
         <Dashboard/>
       </SVGIcon>
       <DropDownMenu value={1} style={{ display: 'flex' }}>
-        <MenuItem value={1} primaryText='Dash 1' />
-        <MenuItem value={2} primaryText='Dash 2' />
-        <MenuItem value={3} primaryText='Dash 3' />
+        {mapObjectToMenuItems('name', 'name', dashboardList)}
       </DropDownMenu>
       <IconButton className={styles.icon} onClick={userToggleDashboardDetails}>
         <ContentAddBox />
@@ -62,9 +70,8 @@ export default enhance(({ classes, userToggleToolBar, userToggleDashboardDetails
           </IconButton>
         }
         >
-        <MenuItem value={1} primaryText='widget 1' />
-        <MenuItem value={2} primaryText='widget 2' />
-        <MenuItem value={3} primaryText='widget 3' />
+        {selectedDashboard && mapObjectToMenuItems('name', 'name', widgetList[selectedDashboard])}
+
       </IconMenu>
     </ToolbarGroup>
     <ToolbarSeparator className={styles.seperator}/>
@@ -84,4 +91,5 @@ export default enhance(({ classes, userToggleToolBar, userToggleDashboardDetails
         <MenuItem value={3} primaryText='datasource 3' />
       </IconMenu>
     </ToolbarGroup>
-  </Toolbar>);
+  </Toolbar>
+);
